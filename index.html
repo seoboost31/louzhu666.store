@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Louzhu Trading Co. — Global Sourcing, Inspection &amp; Freight</title>
+<meta name="description" content="End-to-end sourcing, quality inspection, and freight forwarding for businesses buying from overseas suppliers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Rubik:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152238;
+    --steel:#4A5568;
+    --amber:#D98E2C;
+    --paper:#F3F1EA;
+    --white:#FFFFFF;
+    --ink:#1A2130;
+    --ink-60: rgba(26,33,48,0.62);
+    --ink-30: rgba(26,33,48,0.24);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Rubik', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Sora', sans-serif; font-weight:600;}
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.7rem;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,60px);}
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- signature: route-line rule ---------- */
+  .route-rule{
+    width:100%; height:22px;
+    background-repeat:repeat-x; background-size:64px 22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='22' viewBox='0 0 64 22'><path d='M0 11 H24' stroke='%23D98E2C' stroke-width='1.4' stroke-dasharray='3 3'/><circle cx='32' cy='11' r='3' fill='none' stroke='%23D98E2C' stroke-width='1.4'/><path d='M40 11 H64' stroke='%23D98E2C' stroke-width='1.4' stroke-dasharray='3 3'/></svg>");
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(243,241,234,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(26,33,48,0.1);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,60px);}
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Sora',sans-serif; font-size:1.1rem;}
+  .logo-mark{width:28px; height:28px;}
+  .logo em{font-style:normal; color:var(--amber);}
+  .nav-links{display:flex; gap:28px; align-items:center;}
+  .nav-links a{font-family:'JetBrains Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.1em; position:relative; padding-bottom:3px;}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--amber); transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--navy); color:var(--paper);
+    padding:10px 20px; font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    text-transform:uppercase; letter-spacing:0.1em;
+  }
+  .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer;}
+  .nav-toggle span{width:22px; height:1.5px; background:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; min-height:94vh;
+    display:flex; align-items:center;
+    padding-top:110px;
+    background:var(--navy); color:var(--paper);
+    overflow:hidden;
+  }
+  .hero-grid{
+    position:absolute; inset:0; opacity:0.5;
+    background-image:
+      linear-gradient(rgba(243,241,234,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243,241,234,0.04) 1px, transparent 1px);
+    background-size:46px 46px;
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .eyebrow{display:flex; align-items:center; gap:14px; color:var(--amber); margin-bottom:24px;}
+  .eyebrow::before{content:''; width:32px; height:1px; background:var(--amber);}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem); line-height:1.08; max-width:780px;}
+  .hero h1 span{color:var(--amber);}
+  .hero-sub{margin-top:28px; max-width:500px; font-size:1.06rem; line-height:1.8; color:rgba(243,241,234,0.75);}
+  .hero-cta{margin-top:40px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:16px 30px;
+    font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+    text-transform:uppercase; letter-spacing:0.13em;
+    background:var(--amber); color:var(--navy); border:1px solid var(--amber);
+    transition:background .3s ease, color .3s ease;
+  }
+  .btn:hover{background:transparent; color:var(--amber);}
+  .btn-line{background:transparent; color:var(--paper); border:1px solid rgba(243,241,234,0.32);}
+  .btn-line:hover{background:rgba(243,241,234,0.08);}
+
+  .hero-panel{
+    margin-top:70px; display:grid; grid-template-columns:repeat(4,1fr);
+    gap:0; border-top:1px solid rgba(243,241,234,0.16);
+  }
+  .hero-stat{padding:26px 24px 0 0;}
+  .hero-stat .stat-num{font-family:'Sora',sans-serif; font-size:1.8rem; color:var(--amber);}
+  .hero-stat .stat-label{margin-top:6px; color:rgba(243,241,234,0.5); font-size:0.7rem;}
+
+  /* ---------- section shell ---------- */
+  section{padding:110px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:36px; margin-bottom:58px; flex-wrap:wrap;}
+  .section-head .mono{color:var(--amber); display:block; margin-bottom:12px;}
+  .section-head h2{font-size:clamp(2rem,4.2vw,3rem); max-width:560px;}
+  .section-head p{max-width:320px; color:var(--ink-60); line-height:1.7; font-size:0.94rem;}
+
+  /* ---------- services ---------- */
+  .services{background:var(--paper);}
+  .s-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(26,33,48,0.12);}
+  .s-card{background:var(--paper); padding:36px 26px; transition:background .3s ease;}
+  .s-card:hover{background:#E9E5D8;}
+  .s-icon{width:36px; height:36px; margin-bottom:20px;}
+  .s-card h3{font-size:1.1rem; margin-bottom:10px;}
+  .s-card p{font-size:0.86rem; color:var(--ink-60); line-height:1.65;}
+
+  /* ---------- process ---------- */
+  .process{background:var(--navy); color:var(--paper);}
+  .process .section-head .mono{color:var(--amber);}
+  .process .section-head p{color:rgba(243,241,234,0.6);}
+  .p-list{border-top:1px solid rgba(243,241,234,0.16);}
+  .p-item{
+    display:grid; grid-template-columns:90px 1fr 1fr; gap:30px;
+    padding:30px 0; border-bottom:1px solid rgba(243,241,234,0.16); align-items:start;
+  }
+  .p-mark{font-family:'Sora',serif; font-size:1.3rem; color:var(--amber);}
+  .p-item h3{font-size:1.2rem; margin-bottom:6px;}
+  .p-item p{color:rgba(243,241,234,0.65); font-size:0.92rem; line-height:1.7;}
+
+  /* ---------- industries ---------- */
+  .industries{background:var(--paper);}
+  .ind-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .ind-card{border:1px solid rgba(26,33,48,0.14); padding:34px 28px;}
+  .ind-tag{font-family:'JetBrains Mono',monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--amber); margin-bottom:14px; display:block;}
+  .ind-card h3{font-size:1.15rem; margin-bottom:10px;}
+  .ind-card p{font-size:0.9rem; color:var(--ink-60); line-height:1.7;}
+
+  /* ---------- band ---------- */
+  .band{background:var(--steel); color:var(--paper); padding:90px 0; text-align:center;}
+  .band h2{font-size:clamp(1.7rem,4vw,2.5rem); max-width:740px; margin:0 auto 20px; font-weight:500;}
+  .band .mono{color:var(--amber); display:block; margin-top:16px;}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--paper);}
+  .contact-box{
+    background:var(--navy); color:var(--paper);
+    padding:clamp(46px,7vw,90px);
+    display:grid; grid-template-columns:1.2fr 1fr; gap:50px; align-items:center;
+  }
+  .contact-box h2{font-size:clamp(1.9rem,4vw,2.7rem); margin-bottom:16px;}
+  .contact-box p{color:rgba(243,241,234,0.82); line-height:1.75; max-width:420px;}
+  .c-form{background:rgba(243,241,234,0.06); border:1px solid rgba(243,241,234,0.18); padding:32px;}
+  .c-form .mono{color:var(--amber); display:block; margin-bottom:18px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:0.78rem; color:rgba(243,241,234,0.6); margin-bottom:6px;}
+  .field input, .field select{
+    width:100%; background:transparent; border:none; border-bottom:1px solid rgba(243,241,234,0.3);
+    color:var(--paper); font-family:'Rubik',sans-serif; font-size:0.95rem; padding:8px 0; outline:none;
+  }
+  .field select option{color:#111;}
+  .c-form .btn{width:100%; text-align:center; margin-top:8px;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--navy); color:rgba(243,241,234,0.6); padding:64px 0 26px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:36px; padding-bottom:44px;}
+  .foot-brand .logo{color:var(--paper); margin-bottom:14px;}
+  .foot-brand p{font-size:0.86rem; line-height:1.7; max-width:270px;}
+  .foot-col .mono{color:var(--amber); display:block; margin-bottom:16px;}
+  .foot-col a{display:block; font-size:0.86rem; margin-bottom:9px; color:rgba(243,241,234,0.65);}
+  .foot-col a:hover{color:var(--paper);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:22px; border-top:1px solid rgba(243,241,234,0.14); font-size:0.76rem;}
+
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .nav-toggle{display:flex;}
+    .hero-panel{grid-template-columns:repeat(2,1fr); row-gap:24px;}
+    .s-grid{grid-template-columns:1fr;}
+    .p-item{grid-template-columns:60px 1fr;}
+    .p-item p{grid-column:2/3;}
+    .ind-grid{grid-template-columns:1fr;}
+    .contact-box{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <rect x="6" y="14" width="28" height="18" rx="1" fill="#152238"/>
+        <path d="M6 14 L20 6 L34 14" stroke="#D98E2C" stroke-width="2" fill="none"/>
+      </svg>
+      louzhu <em>trading co.</em>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact" class="nav-cta">Request a Quote</a>
+    </div>
+    <button class="nav-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow mono">Sourcing · Inspection · Freight</div>
+    <h1>Buying from overseas<br>without the <span>guesswork.</span></h1>
+    <p class="hero-sub">We find verified suppliers, inspect goods before they ship, and handle freight door to door — so you're not chasing factories or customs paperwork on your own.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">Request a Quote</a>
+      <a href="#services" class="btn btn-line">See What We Handle</a>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-stat"><div class="stat-num">1,800+</div><div class="stat-label mono">Orders shipped</div></div>
+      <div class="hero-stat"><div class="stat-num">40+</div><div class="stat-label mono">Verified factory partners</div></div>
+      <div class="hero-stat"><div class="stat-num">9</div><div class="stat-label mono">Years in trade</div></div>
+      <div class="hero-stat"><div class="stat-num">24hr</div><div class="stat-label mono">Typical quote turnaround</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="route-rule"></div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="mono">What we handle</span>
+        <h2>Every step between quote and delivery</h2>
+      </div>
+      <p>Use one service or the full chain — we scope it on the first call, no minimum order pressure.</p>
+    </div>
+    <div class="s-grid reveal">
+      <div class="s-card">
+        <svg class="s-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="9" stroke="#152238" stroke-width="1.6"/><path d="M12 34c0-6 4-10 8-10s8 4 8 10" stroke="#D98E2C" stroke-width="1.6"/></svg>
+        <h3>Supplier Sourcing</h3>
+        <p>We vet factories directly, compare quotes, and negotiate terms before you commit to anything.</p>
+      </div>
+      <div class="s-card">
+        <svg class="s-icon" viewBox="0 0 40 40" fill="none"><path d="M8 20l8 8L32 12" stroke="#152238" stroke-width="2" fill="none"/></svg>
+        <h3>Quality Inspection</h3>
+        <p>Pre-shipment checks against your spec sheet, with photo and video reports before goods leave the factory.</p>
+      </div>
+      <div class="s-card">
+        <svg class="s-icon" viewBox="0 0 40 40" fill="none"><rect x="6" y="16" width="28" height="14" rx="1" stroke="#152238" stroke-width="1.6"/><circle cx="13" cy="32" r="2.5" fill="#D98E2C"/><circle cx="27" cy="32" r="2.5" fill="#D98E2C"/></svg>
+        <h3>Freight &amp; Customs</h3>
+        <p>Sea, air, or rail freight booked and tracked, with customs clearance handled on both ends.</p>
+      </div>
+      <div class="s-card">
+        <svg class="s-icon" viewBox="0 0 40 40" fill="none"><rect x="9" y="6" width="22" height="28" rx="1" stroke="#152238" stroke-width="1.6"/><path d="M14 14h12M14 20h12M14 26h7" stroke="#D98E2C" stroke-width="1.6"/></svg>
+        <h3>Documentation</h3>
+        <p>Commercial invoices, packing lists, and certificates prepared and checked before they're needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="mono">How it works</span>
+        <h2>Four steps, one point of contact</h2>
+      </div>
+      <p>Whatever the product, the process stays the same.</p>
+    </div>
+    <div class="p-list reveal">
+      <div class="p-item">
+        <div class="p-mark">01</div>
+        <h3>Send your spec</h3>
+        <p>Product details, target quantity, and budget — we come back with sourcing options within a day.</p>
+      </div>
+      <div class="p-item">
+        <div class="p-mark">02</div>
+        <h3>Approve the sample</h3>
+        <p>We arrange and ship a sample for your sign-off before any production order is placed.</p>
+      </div>
+      <div class="p-item">
+        <div class="p-mark">03</div>
+        <h3>We inspect &amp; ship</h3>
+        <p>Goods are checked against spec before loading, then booked on the freight method that fits your timeline.</p>
+      </div>
+      <div class="p-item">
+        <div class="p-mark">04</div>
+        <h3>Delivered, cleared</h3>
+        <p>Customs handled on arrival, with tracking updates the whole way so nothing shows up as a surprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="mono">Who we work with</span>
+        <h2>A few industries we know well</h2>
+      </div>
+      <p>If your category isn't listed, ask anyway — most sourcing problems look alike underneath.</p>
+    </div>
+    <div class="ind-grid reveal">
+      <div class="ind-card">
+        <span class="ind-tag">Retail &amp; DTC</span>
+        <h3>Consumer Goods</h3>
+        <p>Homeware, accessories, and small electronics for brands scaling past their first production run.</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-tag">Wholesale</span>
+        <h3>Hardware &amp; Tools</h3>
+        <p>Bulk sourcing for distributors who need consistent spec across repeat orders.</p>
+      </div>
+      <div class="ind-card">
+        <span class="ind-tag">Packaging</span>
+        <h3>Custom Packaging</h3>
+        <p>Branded boxes, mailers, and inserts sourced and matched to your existing supply chain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap reveal">
+    <h2>"They caught a spec mismatch in the pre-shipment inspection that would've cost us a full container of returns."</h2>
+    <span class="mono">— Operations lead, consumer goods brand</span>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div>
+        <span class="mono" style="color:var(--amber);">Get a quote</span>
+        <h2>Tell us what you're sourcing</h2>
+        <p>Send your product details and target quantity — we'll come back with supplier options and a landed-cost estimate within a day.</p>
+      </div>
+      <div class="c-form">
+        <span class="mono">Request a quote</span>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="need">What are you sourcing?</label>
+          <select id="need">
+            <option>Consumer goods</option>
+            <option>Hardware / tools</option>
+            <option>Packaging</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <button type="button" class="btn">Request a Quote</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">louzhu <em style="font-style:normal;color:var(--amber);">trading co.</em></div>
+        <p>Sourcing, inspection, and freight forwarding for businesses buying from overseas suppliers.</p>
+      </div>
+      <div class="foot-col">
+        <span class="mono">Services</span>
+        <a href="#services">Sourcing</a>
+        <a href="#services">Inspection</a>
+        <a href="#services">Freight</a>
+      </div>
+      <div class="foot-col">
+        <span class="mono">Company</span>
+        <a href="#process">How it works</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <span class="mono">Offices</span>
+        <a href="#">Shenzhen</a>
+        <a href="#">Ningbo</a>
+        <a href="#">Los Angeles</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Louzhu Trading Co. Independent sourcing &amp; freight.</span>
+      <span>louzhu666.store</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle?.addEventListener('click', ()=>{
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    links.style.cssText += open ? '' : 'position:fixed;top:64px;left:0;right:0;background:#F3F1EA;flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid rgba(26,33,48,0.1);';
+  });
+</script>
+
+</body>
+</html>
